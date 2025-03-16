@@ -62,11 +62,11 @@
           }
         </style>
       </head>
-      <body>
+      <body onload="lights2()">
         <button id="Button" onclick="desk()" >Desk</button>
         <button id="Button2" onclick="chair()" >Chair</button>
         <button id="Button3" onclick="pc()" >Setup</button>
-        <button id="Button4" onclick="lights()" >Lights</button>
+        <button id="Button4" onclick="lights();lights2()" >Lights</button>
         
         <a-scene >
           <!-- primitives-->
@@ -108,7 +108,7 @@
 
                
                 <!-- pinakas-->
-                <a-entity position="0 3 -19.5" > 
+                <a-entity shadow="receive: true; cast: true" position="0 3 -19.5" > 
                   <a-box color="white" depth="0.5" height="5.5" width="7.5"> </a-box>
                   <a-box position="0 3 0"depth="0.6" height="0.5" width="8" color="#fff8e6"></a-box>
                   <a-cylinder position="-0.0 -2.70 0.2" rotation="0 0 90" color="#ffffff" height="7.6" radius="0.09"></a-cylinder>
@@ -117,9 +117,9 @@
                 
                 
                 <!-- professors setup -->
-                <a-entity position="3.8 1 -17" shadow="cast: true">
+                <a-entity position="3.8 1 -17" shadow="receive: true; cast: true">
                    <!-- tower --> 
-                <a-box color="#1f1f1f" position="-1 -1 0"  depth="0.9" height="1" width="0.4"></a-box>>
+                <a-box id="tower0" color="#1f1f1f" position="-1 -1 0"  depth="0.9" height="1" width="0.4"></a-box>>
                 <a-entity id="desk0">
                 <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
                    <!-- rafi -->
@@ -141,13 +141,13 @@
 
 
                    <!--right fulll set up 1-->
-                <a-entity id="r_full_setup1" position="4.7 1 -14" rotation="0 90 0" > 
+                <a-entity shadow="receive: true; cast: true" id="r_full_setup1" position="4.7 1 -14" rotation="0 90 0" > 
                   
                 <!-- tower --> 
-                <a-box id="tower1" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+                <a-box shadow="receive: true; cast: true" id="tower1" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
                 
                    <!-- screen --> 
-                <a-entity id="screen1" position="-0.5 0.98 0" > 
+                <a-entity shadow="receive: true; cast: true" id="screen1" position="-0.5 0.98 0" > 
                   <!--big plate of screen-->
                   <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
                   <!--back plate-->
@@ -166,7 +166,7 @@
  
  
                 <!--keyboard-->
-                <a-entity id="keyboard1" position="0 0.1 -0.1" > 
+                <a-entity shadow="receive: true; cast: true" id="keyboard1" position="0 0.1 -0.1" > 
                   <!--base-->
                 <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
                 <!--first row-->
@@ -233,7 +233,7 @@
               </a-entity>
 
               <!-- mouse -->    
-              <a-entity id="mouse1"position="-0.7 0.14 0">
+              <a-entity shadow="receive: true; cast: true" id="mouse1"position="-0.7 0.14 0">
                 <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
                 <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
                 <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -241,7 +241,7 @@
               </a-entity>
 
                    <!-- common chair -->
-                   <a-entity id="chair1" position="0 0 -2" >
+                   <a-entity shadow="receive: true; cast: true" id="chair1" position="0 0 -2" >
                     <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
                     <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
                     <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -251,7 +251,7 @@
                     <a-cylinder position=" -0.7 -1 1.45" color="#000000" height="0.8" radius="0.03"></a-cylinder>
   
                   </a-entity>
-                <a-entity id="desk1">
+                <a-entity shadow="receive: true; cast: true" id="desk1">
                   <!-- common desk -->
                   <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
                   <!-- rafi -->
@@ -275,13 +275,13 @@
 
 
                      <!--right fulll set up 2-->
-                <a-entity id="r_full_setup2"position="4.7 1 -10.8" rotation="0 90 0" > 
+                <a-entity shadow="receive: true; cast: true" id="r_full_setup2"position="4.7 1 -10.8" rotation="0 90 0" > 
                   
                   <!-- tower --> 
-                  <a-box id="tower2"color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+                  <a-box shadow="receive: true; cast: true" id="tower2"color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
                   
                      <!-- screen --> 
-                  <a-entity id="screen2"position="-0.5 0.98 0" > 
+                  <a-entity shadow="receive: true; cast: true" id="screen2"position="-0.5 0.98 0" > 
                     <!--big plate of screen-->
                     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
                     <!--back plate-->
@@ -299,7 +299,7 @@
                   </a-entity>
   
                   <!--keyboard-->
-                  <a-entity id="keyboard2" position="0 0.1 -0.1" > 
+                  <a-entity shadow="receive: true; cast: true" id="keyboard2" position="0 0.1 -0.1" > 
                     <!--base-->
                   <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
                   <!--first row-->
@@ -366,7 +366,7 @@
                 </a-entity>
   
                 <!-- mouse -->    
-                <a-entity id="mouse2" position="-0.7 0.14 0">
+                <a-entity shadow="receive: true; cast: true" id="mouse2" position="-0.7 0.14 0">
                   <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
                   <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
                   <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -374,7 +374,7 @@
                 </a-entity>
   
                      <!-- common chair -->
-                     <a-entity id="chair2" position="0 0 -2" >
+                     <a-entity shadow="receive: true; cast: true" id="chair2" position="0 0 -2" >
                       <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
                       <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
                       <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -386,7 +386,7 @@
                     </a-entity>
                     
                     <!-- common desk -->
-                    <a-entity id="desk2">                   
+                    <a-entity shadow="receive: true; cast: true" id="desk2">                   
                     <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
                     <!-- rafi -->
                     <a-box position="0 -0.25 0.5"rotation="90 0 0"color="#1f1d1c" depth="0.3" height="0.1" width="3"> </a-box>      
@@ -406,13 +406,13 @@
                 </a-entity>
                
                  <!--right fulll set up 3-->
-                <a-entity id="r_full_setup3" position="4.7 1 -7.6" rotation="0 90 0" > 
+                <a-entity shadow="receive: true; cast: true" id="r_full_setup3" position="4.7 1 -7.6" rotation="0 90 0" > 
                   
                   <!-- tower --> 
-                  <a-box id="tower3"color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+                  <a-box shadow="receive: true; cast: true" id="tower3"color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
                   
                      <!-- screen --> 
-                  <a-entity  id="screen3" position="-0.5 0.98 0" > 
+                  <a-entity  shadow="receive: true; cast: true" id="screen3" position="-0.5 0.98 0" > 
                     <!--big plate of screen-->
                     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
                     <!--back plate-->
@@ -430,7 +430,7 @@
                   </a-entity>
   
                   <!--keyboard-->
-                  <a-entity id="keyboard3" position="0 0.1 -0.1" > 
+                  <a-entity shadow="receive: true; cast: true" id="keyboard3" position="0 0.1 -0.1" > 
                     <!--base-->
                   <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
                   <!--first row-->
@@ -497,7 +497,7 @@
                 </a-entity>
   
                 <!-- mouse -->    
-                <a-entity id="mouse3" position="-0.7 0.14 0">
+                <a-entity shadow="receive: true; cast: true" id="mouse3" position="-0.7 0.14 0">
                   <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
                   <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
                   <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -505,7 +505,7 @@
                 </a-entity>
   
                      <!-- common chair -->
-                     <a-entity id="chair3" position="0 0 -2" >
+                     <a-entity shadow="receive: true; cast: true" id="chair3" position="0 0 -2" >
                       <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
                       <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
                       <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -517,7 +517,7 @@
                     </a-entity>
       
                     <!-- common desk -->
-                    <a-entity id="desk3">
+                    <a-entity shadow="receive: true; cast: true" id="desk3">
                     <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
                     <!-- rafi -->
                     <a-box position="0 -0.25 0.5"rotation="90 0 0"color="#1f1d1c" depth="0.3" height="0.1" width="3"> </a-box>      
@@ -538,13 +538,13 @@
             
                
                  <!--right fulll set up 4-->
-                 <a-entity id="r_full_setup4" position="4.7 1 -4.4"  rotation="0 90 0" > 
+                 <a-entity shadow="receive: true; cast: true" id="r_full_setup4" position="4.7 1 -4.4"  rotation="0 90 0" > 
                   
                   <!-- tower --> 
-                  <a-box id="tower4"  color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+                  <a-box shadow="receive: true; cast: true" id="tower4"  color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
                   
                      <!-- screen --> 
-                  <a-entity id="screen4" position="-0.5 0.98 0" > 
+                  <a-entity shadow="receive: true; cast: true" id="screen4" position="-0.5 0.98 0" > 
                     <!--big plate of screen-->
                     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
                     <!--back plate-->
@@ -562,7 +562,7 @@
                   </a-entity>
   
                   <!--keyboard-->
-                  <a-entity id="keyboard4" position="0 0.1 -0.1" > 
+                  <a-entity shadow="receive: true; cast: true" id="keyboard4" position="0 0.1 -0.1" > 
                     <!--base-->
                   <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
                   <!--first row-->
@@ -629,7 +629,7 @@
                 </a-entity>
   
                 <!-- mouse -->    
-                <a-entity id="mouse4"position="-0.7 0.14 0">
+                <a-entity shadow="receive: true; cast: true" id="mouse4"position="-0.7 0.14 0">
                   <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
                   <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
                   <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -637,7 +637,7 @@
                 </a-entity>
   
                      <!-- common chair -->
-                     <a-entity id="chair4" position="0 0 -2" >
+                     <a-entity shadow="receive: true; cast: true" id="chair4" position="0 0 -2" >
                       <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
                       <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
                       <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -649,7 +649,7 @@
                     </a-entity>
       
                     <!-- common desk -->
-                    <a-entity id="desk4">
+                    <a-entity shadow="receive: true; cast: true" id="desk4">
                     <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
                     <!-- rafi -->
                     <a-box position="0 -0.25 0.5"rotation="90 0 0"color="#1f1d1c" depth="0.3" height="0.1" width="3"> </a-box>      
@@ -669,13 +669,13 @@
                   </a-entity>
                
                  <!--left full set up 1-->
-                 <a-entity id="l_full_setup1"position="-4.7 1 -17"  rotation="0 -90 0" > 
+                 <a-entity shadow="receive: true; cast: true" id="l_full_setup1"position="-4.7 1 -17"  rotation="0 -90 0" > 
                   
                   <!-- tower --> 
-                  <a-box id="tower5" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+                  <a-box shadow="receive: true; cast: true" id="tower5" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
                   
                      <!-- screen --> 
-                  <a-entity id="screen5" position="-0.5 0.98 0" > 
+                  <a-entity shadow="receive: true; cast: true" id="screen5" position="-0.5 0.98 0" > 
                     <!--big plate of screen-->
                     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
                     <!--back plate-->
@@ -694,7 +694,7 @@
                   </a-entity>
   
                   <!--keyboard-->
-                  <a-entity id="keyboard5" position="0 0.1 -0.1" > 
+                  <a-entity shadow="receive: true; cast: true" id="keyboard5" position="0 0.1 -0.1" > 
                     <!--base-->
                   <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
                   <!--first row-->
@@ -761,7 +761,7 @@
                 </a-entity>
   
                 <!-- mouse -->    
-                <a-entity id="mouse5" position="-0.7 0.14 0">
+                <a-entity shadow="receive: true; cast: true" id="mouse5" position="-0.7 0.14 0">
                   <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
                   <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
                   <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -769,7 +769,7 @@
                 </a-entity>
   
                      <!-- common chair -->
-                     <a-entity id="chair5" position="0 0 -2" >
+                     <a-entity shadow="receive: true; cast: true" id="chair5" position="0 0 -2" >
                       <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
                       <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
                       <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -781,7 +781,7 @@
                     </a-entity>
       
                     <!-- common desk -->
-                    <a-entity id="desk5">
+                    <a-entity shadow="receive: true; cast: true" id="desk5">
                     <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
                     <!-- rafi -->
                     <a-box position="0 -0.25 0.5"rotation="90 0 0"color="#1f1d1c" depth="0.3" height="0.1" width="3"> </a-box>      
@@ -801,13 +801,13 @@
                   </a-entity>             
 
 <!--left full set up 2-->
-<a-entity id="l_full_setup2" position="-4.7 1 -13.8"  rotation="0 -90 0" > 
+<a-entity shadow="receive: true; cast: true" id="l_full_setup2" position="-4.7 1 -13.8"  rotation="0 -90 0" > 
                   
   <!-- tower --> 
-  <a-box id="tower6" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+  <a-box shadow="receive: true; cast: true" id="tower6" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
   
      <!-- screen --> 
-  <a-entity id="screen6" position="-0.5 0.98 0" > 
+  <a-entity shadow="receive: true; cast: true" id="screen6" position="-0.5 0.98 0" > 
     <!--big plate of screen-->
     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
     <!--back plate-->
@@ -826,7 +826,7 @@
   </a-entity>
 
   <!--keyboard-->
-  <a-entity id="keyboard6" position="0 0.1 -0.1" > 
+  <a-entity shadow="receive: true; cast: true" id="keyboard6" position="0 0.1 -0.1" > 
     <!--base-->
   <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
   <!--first row-->
@@ -893,7 +893,7 @@
 </a-entity>
 
 <!-- mouse -->    
-<a-entity id="mouse6" position="-0.7 0.14 0">
+<a-entity shadow="receive: true; cast: true" id="mouse6" position="-0.7 0.14 0">
   <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
   <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
   <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -901,7 +901,7 @@
 </a-entity>
 
      <!-- common chair -->
-     <a-entity id="chair6" position="0 0 -2" >
+     <a-entity shadow="receive: true; cast: true" id="chair6" position="0 0 -2" >
       <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
       <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
       <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -913,7 +913,7 @@
     </a-entity>
 
     <!-- common desk -->
-    <a-entity id="desk6">
+    <a-entity shadow="receive: true; cast: true" id="desk6">
     <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
     <!-- rafi -->
     <a-box position="0 -0.25 0.5"rotation="90 0 0"color="#1f1d1c" depth="0.3" height="0.1" width="3"> </a-box>      
@@ -935,13 +935,13 @@
               
 
 <!--left full set up 3-->
-<a-entity id="l_full_setup3"position="-4.7 1 -10.6"  rotation="0 -90 0" > 
+<a-entity shadow="receive: true; cast: true" id="l_full_setup3"position="-4.7 1 -10.6"  rotation="0 -90 0" > 
                   
   <!-- tower --> 
-  <a-box id="tower7"color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+  <a-box shadow="receive: true; cast: true" id="tower7"color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
   
      <!-- screen --> 
-  <a-entity id="screen7" position="-0.5 0.98 0" > 
+  <a-entity shadow="receive: true; cast: true" id="screen7" position="-0.5 0.98 0" > 
     <!--big plate of screen-->
     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
     <!--back plate-->
@@ -960,7 +960,7 @@
   </a-entity>
 
   <!--keyboard-->
-  <a-entity id="keyboard7" position="0 0.1 -0.1" > 
+  <a-entity shadow="receive: true; cast: true" id="keyboard7" position="0 0.1 -0.1" > 
     <!--base-->
   <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
   <!--first row-->
@@ -1027,7 +1027,7 @@
 </a-entity>
 
 <!-- mouse -->    
-<a-entity id="mouse7" position="-0.7 0.14 0">
+<a-entity shadow="receive: true; cast: true" id="mouse7" position="-0.7 0.14 0">
   <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
   <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
   <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -1035,7 +1035,7 @@
 </a-entity>
 
      <!-- common chair -->
-     <a-entity id="chair7" position="0 0 -2" >
+     <a-entity shadow="receive: true; cast: true" id="chair7" position="0 0 -2" >
       <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
       <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
       <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -1047,7 +1047,7 @@
     </a-entity>
 
     <!-- common desk -->
-    <a-entity id="desk7">
+    <a-entity shadow="receive: true; cast: true" id="desk7">
     <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
     <!-- rafi -->
     <a-box position="0 -0.25 0.5"rotation="90 0 0"color="#1f1d1c" depth="0.3" height="0.1" width="3"> </a-box>      
@@ -1067,13 +1067,13 @@
 </a-entity> 
                 
 <!--left full set up 4-->
-<a-entity id="l_full_setup4" position="-4.7 1 -7.4"  rotation="0 -90 0" > 
+<a-entity shadow="receive: true; cast: true" id="l_full_setup4" position="-4.7 1 -7.4"  rotation="0 -90 0" > 
                   
   <!-- tower --> 
-  <a-box id="tower8" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+  <a-box shadow="receive: true; cast: true" id="tower8" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
   
      <!-- screen --> 
-  <a-entity id="screen8" position="-0.5 0.98 0" > 
+  <a-entity shadow="receive: true; cast: true" id="screen8" position="-0.5 0.98 0" > 
     <!--big plate of screen-->
     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
     <!--back plate-->
@@ -1092,7 +1092,7 @@
   </a-entity>
 
   <!--keyboard-->
-  <a-entity id="keyboard8" position="0 0.1 -0.1" > 
+  <a-entity shadow="receive: true; cast: true" id="keyboard8" position="0 0.1 -0.1" > 
     <!--base-->
   <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
   <!--first row-->
@@ -1159,7 +1159,7 @@
 </a-entity>
 
 <!-- mouse -->    
-<a-entity id="mouse8" position="-0.7 0.14 0">
+<a-entity shadow="receive: true; cast: true" id="mouse8" position="-0.7 0.14 0">
   <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
   <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
   <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -1167,7 +1167,7 @@
 </a-entity>
 
      <!-- common chair -->
-     <a-entity id="chair8" position="0 0 -2" >
+     <a-entity shadow="receive: true; cast: true" id="chair8" position="0 0 -2" >
       <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
       <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
       <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -1179,7 +1179,7 @@
     </a-entity>
 
     <!-- common desk -->
-     <a-entity id="desk8">
+     <a-entity shadow="receive: true; cast: true" id="desk8">
     <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
     <!-- rafi -->
     <a-box position="0 -0.25 0.5"rotation="90 0 0"color="#1f1d1c" depth="0.3" height="0.1" width="3"> </a-box>      
@@ -1198,13 +1198,14 @@
   </a-entity> 
   </a-entity>
 <!--left full set up 5-->
-<a-entity id="l_full_setup5 " position="-4.7 1 -4.2"  rotation="0 -90 0" > 
+<a-entity shadow="receive: true; cast: true" id="l_full_setup5 " position="-4.7 1 -4.2"  rotation="0 -90 0" > 
                   
   <!-- tower --> 
-  <a-box id="tower9" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
+   
+  <a-box shadow="receive: true; cast: true" id="tower9" color="#1f1f1f" position=" 1 0.6 0"  depth="0.9" height="1" width="0.4"></a-box>>
   
      <!-- screen --> 
-  <a-entity id="screen9" position="-0.5 0.98 0" > 
+  <a-entity shadow="receive: true; cast: true" id="screen9" position="-0.5 0.98 0" > 
     <!--big plate of screen-->
     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
     <!--back plate-->
@@ -1222,7 +1223,7 @@
   </a-entity>
 
   <!--keyboard-->
-  <a-entity id="keyboard9" position="0 0.1 -0.1" > 
+  <a-entity shadow="receive: true; cast: true" id="keyboard9" position="0 0.1 -0.1" > 
     <!--base-->
   <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
   <!--first row-->
@@ -1289,7 +1290,7 @@
 </a-entity>
 
 <!-- mouse -->    
-<a-entity id="mouse9" position="-0.7 0.14 0">
+<a-entity shadow="receive: true; cast: true" id="mouse9" position="-0.7 0.14 0">
   <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
   <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
   <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -1297,7 +1298,7 @@
 </a-entity>
 
      <!-- common chair -->
-     <a-entity id="chair9" position="0 0 -2">
+     <a-entity shadow="receive: true; cast: true" id="chair9" position="0 0 -2">
       <a-box position="0 0.1 0.55" rotation="90 0 0" color="#0f0f0f" depth="0.8" height="0.1" width="1.5"> </a-box> 
       <a-cylinder position=" 0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
       <a-cylinder position=" -0.7 -1 0.55" color="#000000" height="1.5" radius="0.03"></a-cylinder>
@@ -1309,7 +1310,7 @@
     </a-entity>
 
     <!-- common desk -->
-    <a-entity id="desk9">
+    <a-entity shadow="receive: true; cast: true" id="desk9">
     <a-box color="#a15016" depth="1.2" height="0.2" width="3.1"> </a-box>  
     <!-- rafi -->
     <a-box position="0 -0.25 0.5"rotation="90 0 0"color="#1f1d1c" depth="0.3" height="0.1" width="3"> </a-box>      
@@ -1330,7 +1331,7 @@
 
 
                   <!--keyboard--> 
-                  <a-entity id="keyboard0" position="3.8 1.1 -17.3" > 
+                  <a-entity shadow="receive: true; cast: true" id="keyboard0" position="3.8 1.1 -17.3" > 
                       <!--base-->
                     <a-box color="#212120" depth="0.5" height="0.1" width="1.1"> </a-box>
                     <!--first row-->
@@ -1397,7 +1398,7 @@
                   </a-entity>
 
                   <!--screen-->          
-                  <a-entity id="screen0" position="3.8 2 -17.1" > 
+                  <a-entity shadow="receive: true; cast: true" id="screen0" position="3.8 2 -17.1" > 
                     <!--big plate of screen-->
                     <a-box position="0 0 0.35"  color="#020203" depth="0.1" height="0.9" width="1.5"> </a-box> 
                     <!--back plate-->
@@ -1417,15 +1418,18 @@
 
                 <!-- projector --> 
                 <a-entity position="0 6 -10" >
-                  <a-entity id="lights" visible="false">
-                  <a-entity position="0 -0.5 -2" light="type: point; angle: 90"></a-entity>
-                  <a-entity position="0 -1 2" light="type: spot; angle: 45"></a-entity>
-                  <a-entity light="type: hemisphere; color:#d7e1f7; groundColor: #ffffff; intensity: 1"></a-entity>
-                  </a-entity>
-                <a-entity id="lights2" scale="0.050 0.050 0.050 ">
-                 <!--right side lights-->
-                 <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 5.23; distance: 2.23; intensity: 1; type: spot; castShadow: true" position="104.12288 -85.92358 -76.58193" scale="1 0.01 10" rotation="-24.55926293048761 90.01 -90.00021045914971"></a-light>                <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 0.46; distance: 2.23; intensity: 6.06; castShadow: true" position="70.03051 -75.66234 -6.54585" scale="2 2 2" rotation="0 0 90"></a-light>
-                 <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 5.23; distance: 2.23; intensity: 1; type: spot; castShadow: true" position="103.90076 -85.92358 -6.88805" scale="1 0.01 10" rotation="-24.55926293048761 90.01 -90.00021045914971"></a-light>                  <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 0.46; distance: 2.23; intensity: 6.06; castShadow: true" position="70.03051 -80.88515 120.85288" scale="2 2 2" rotation="0 0 90"></a-light>
+                  <a-entity position="-0.00364 -0.0154 -0.71047" light="angle: 90; decay: 3.45; type: point" scale="0.05 0.05 0.05"></a-entity>                 
+                  <a-entity position="0 0.05608 0.39627" light="angle: 23.12; color: #ffffff; decay: 0.69; type: spot; castShadow: true" rotation="-14.999999999999998 0 0"></a-entity>
+                  <a-entity id="lights">
+                    <a-entity light="angle: 140; color: #ffffff; groundColor: #ffffff; decay: -0.15; intensity: 0.37; type: spot; castShadow: true; shadowCameraRight: 5.09; shadowRadius: 0.97" position="-0.26901 -0.59458 5.90214" scale="0.3 0.3 0.3" rotation="-90 0 0"></a-entity>                  </a-entity>
+                  
+                  <a-entity id="blip">
+                    <a-entity id="lights2"  scale="0.050 0.050 0.050 ">
+               
+                <a-entity light="color: #d7e1f7; groundColor: #ffffff; intensity: 0.09; type: hemisphere" position="0 -2.49283 2.12275"></a-entity>
+                 
+                 <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 5.23; distance: 2.23; intensity: 1; type: spot; castShadow: true" position="104.12288 -85.92358 -76.58193" scale="1 0.01 10" rotation="-24.55926293048761 90.01 -90.00021045914971"></a-light>               
+                 <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 5.23; distance: 2.23; intensity: 1; type: spot; castShadow: true" position="103.90076 -85.92358 -6.88805" scale="1 0.01 10" rotation="-24.55926293048761 90.01 -90.00021045914971"></a-light>          
                  <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 5.23; distance: 2.23; intensity: 1; type: spot; castShadow: true" position="103.90076 -85.92358 58.14133" scale="1 0.01 10" rotation="-24.55926293048761 90.01 -90.00021045914971"></a-light>
                  <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 5.23; distance: 2.23; intensity: 1; type: spot; castShadow: true" position="103.90076 -85.92358 124.25827" scale="1 0.01 10" rotation="-24.55926293048761 90.01 -90.00021045914971"></a-light>
 
@@ -1435,7 +1439,9 @@
                  <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 5.23; distance: 2.23; intensity: 1; type: spot; castShadow: true" position="-104.07282 -83.37198 -92.21717" scale="1 0.01 10" rotation="-25.72924274814475 -94.90129143869878 -94.49048069958998"></a-light>
                  <a-light type="point" color="#ffffff" intesity="0.000001" light="decay: 5.23; distance: 2.23; intensity: 1; type: spot; castShadow: true" position="-103.97697 -83.37198 -158.633" scale="1 0.01 10" rotation="-25.72924274814475 -94.90129143869878 -94.49048069958998"></a-light>
                 </a-entity>
-
+              </a-entity>
+             
+              <a-entity shadow="receive: true; cast: true" >
                   <a-box color="#d7e1f7" depth="1.2" height="0.5" width="1"> </a-box>
                   <a-cylinder position="0 0.5 0" color="#d7e1f7" height="1.5" radius="0.1"></a-cylinder>
                    <!-- lens --> 
@@ -1447,7 +1453,7 @@
 
 
               <!-- projector remote controls-->
-              <a-entity position="5 1.1 -17.3">
+              <a-entity shadow="receive: true; cast: true" position="5 1.1 -17.3">
                 <a-box color="#463e4f" depth="0.22" height="0.1" width="0.15"> </a-box>
                 <a-box position="0 0.05 0" color="cyan" depth="0.03" height="0.01" width="0.03"> </a-box>
                 <a-box position="0 0.05 -0.05" color="cyan" depth="0.03" height="0.01" width="0.03"> </a-box>
@@ -1467,7 +1473,7 @@
               </a-entity>
 
                <!-- aircon remote controls-->
-               <a-entity position="2.5 1.1 -17.3">
+               <a-entity shadow="receive: true; cast: true" position="2.5 1.1 -17.3">
                 <a-box color="#beb5c9" depth="0.22" height="0.1" width="0.1"> </a-box>
                 <a-box position="0 0.05 -0.05" color="cyan" depth="0.02" height="0.01" width="0.02"> </a-box>
                 <a-box position="0 0.05 -0.08" color="cyan" depth="0.02" height="0.01" width="0.02"> </a-box>
@@ -1480,7 +1486,7 @@
               </a-entity>
 
                <!-- mouse -->    
-              <a-entity id="mouse0" position="3.1 1.1 -17.3">
+              <a-entity shadow="receive: true; cast: true" id="mouse0" position="3.1 1.1 -17.3">
                 <a-box color="#beb5c9" depth="0.2" height="0.05" width="0.13"> </a-box>
                 <a-box position="0.035 0.03 0.05" color="#9e97a6" depth="0.1" height="0.01" width="0.065"> </a-box>
                 <a-cylinder position="0  0.03 0.02" rotation="0 0 90"color="#ff1303" height="0.01" radius="0.015"></a-cylinder>  
@@ -1587,10 +1593,146 @@
           
           function pc()
           {
-            const toggleButton = document.getElementById('toggleButton');
-            const toggleBox = document.getElementById('toggleBox');
-            const isVisible = toggleBox.getAttribute('visible');
-            toggleBox.setAttribute('visible', !isVisible);
+            const Button3 = document.getElementById('Button3');
+           
+            const screen0 = document.getElementById('screen0');
+            const screen1 = document.getElementById('screen1');
+            const screen2 = document.getElementById('screen2');
+            const screen3 = document.getElementById('screen3');
+            const screen4 = document.getElementById('screen4');
+            const screen5 = document.getElementById('screen5');
+            const screen6 = document.getElementById('screen6');
+            const screen7 = document.getElementById('screen7');
+            const screen8 = document.getElementById('screen8');
+            const screen9 = document.getElementById('screen9');
+
+            const keyboard0 = document.getElementById('keyboard0');
+            const keyboard1 = document.getElementById('keyboard1');
+            const keyboard2 = document.getElementById('keyboard2');
+            const keyboard3 = document.getElementById('keyboard3');
+            const keyboard4 = document.getElementById('keyboard4');
+            const keyboard5 = document.getElementById('keyboard5');
+            const keyboard6 = document.getElementById('keyboard6');
+            const keyboard7 = document.getElementById('keyboard7');
+            const keyboard8 = document.getElementById('keyboard8');
+            const keyboard9 = document.getElementById('keyboard9');
+
+            const mouse0 = document.getElementById('mouse0');
+            const mouse1 = document.getElementById('mouse1');
+            const mouse2 = document.getElementById('mouse2');
+            const mouse3 = document.getElementById('mouse3');
+            const mouse4 = document.getElementById('mouse4');
+            const mouse5 = document.getElementById('mouse5');
+            const mouse6 = document.getElementById('mouse6');
+            const mouse7 = document.getElementById('mouse7');
+            const mouse8 = document.getElementById('mouse8');
+            const mouse9 = document.getElementById('mouse9');
+
+
+            const tower0 = document.getElementById('tower0');
+            const tower1 = document.getElementById('tower1');
+            const tower2 = document.getElementById('tower2');
+            const tower3 = document.getElementById('tower3');
+            const tower4 = document.getElementById('tower4');
+            const tower5 = document.getElementById('tower5');
+            const tower6 = document.getElementById('tower6');
+            const tower7 = document.getElementById('tower7');
+            const tower8 = document.getElementById('tower8');
+            const tower9 = document.getElementById('tower9');
+
+            const isVisible0_3_1 = screen0.getAttribute('visible');
+            const isVisible1_3_1 = screen1.getAttribute('visible');
+            const isVisible2_3_1 = screen2.getAttribute('visible');
+            const isVisible3_3_1 = screen3.getAttribute('visible');
+            const isVisible4_3_1 = screen4.getAttribute('visible');
+            const isVisible5_3_1 = screen5.getAttribute('visible');
+            const isVisible6_3_1 = screen6.getAttribute('visible');
+            const isVisible7_3_1 = screen7.getAttribute('visible');
+            const isVisible8_3_1 = screen8.getAttribute('visible');
+            const isVisible9_3_1 = screen9.getAttribute('visible');
+
+            const isVisible0_3_2 = keyboard0.getAttribute('visible');
+            const isVisible1_3_2 = keyboard1.getAttribute('visible');
+            const isVisible2_3_2 = keyboard2.getAttribute('visible');
+            const isVisible3_3_2 = keyboard3.getAttribute('visible');
+            const isVisible4_3_2 = keyboard4.getAttribute('visible');
+            const isVisible5_3_2 = keyboard5.getAttribute('visible');
+            const isVisible6_3_2 = keyboard6.getAttribute('visible');
+            const isVisible7_3_2 = keyboard7.getAttribute('visible');
+            const isVisible8_3_2 = keyboard8.getAttribute('visible');
+            const isVisible9_3_2 = keyboard9.getAttribute('visible');
+            
+            const isVisible0_3_4 = tower0.getAttribute('visible');
+            const isVisible1_3_4 = tower1.getAttribute('visible');
+            const isVisible2_3_4 = tower2.getAttribute('visible');
+            const isVisible3_3_4 = tower3.getAttribute('visible');
+            const isVisible4_3_4 = tower4.getAttribute('visible');
+            const isVisible5_3_4 = tower5.getAttribute('visible');
+            const isVisible6_3_4 = tower6.getAttribute('visible');
+            const isVisible7_3_4 = tower7.getAttribute('visible');
+            const isVisible8_3_4 = tower8.getAttribute('visible');
+            const isVisible9_3_4 = tower9.getAttribute('visible');
+
+            const isVisible0_3_3 = mouse0.getAttribute('visible');
+            const isVisible1_3_3 = mouse1.getAttribute('visible');
+            const isVisible2_3_3 = mouse2.getAttribute('visible');
+            const isVisible3_3_3 = mouse3.getAttribute('visible');
+            const isVisible4_3_3 = mouse4.getAttribute('visible');
+            const isVisible5_3_3 = mouse5.getAttribute('visible');
+            const isVisible6_3_3 = mouse6.getAttribute('visible');
+            const isVisible7_3_3 = mouse7.getAttribute('visible');
+            const isVisible8_3_3 = mouse8.getAttribute('visible');
+            const isVisible9_3_3 = mouse9.getAttribute('visible');
+
+            screen0.setAttribute('visible', !isVisible0_3_1);
+            screen1.setAttribute('visible', !isVisible1_3_1);
+            screen2.setAttribute('visible', !isVisible2_3_1);
+            screen3.setAttribute('visible', !isVisible3_3_1);
+            screen4.setAttribute('visible', !isVisible4_3_1);
+            screen5.setAttribute('visible', !isVisible5_3_1);
+            screen6.setAttribute('visible', !isVisible6_3_1);
+            screen7.setAttribute('visible', !isVisible7_3_1);
+            screen8.setAttribute('visible', !isVisible8_3_1);
+            screen9.setAttribute('visible', !isVisible9_3_1);
+
+            keyboard0.setAttribute('visible', !isVisible0_3_2);
+            keyboard1.setAttribute('visible', !isVisible1_3_2);
+            keyboard2.setAttribute('visible', !isVisible2_3_2);
+            keyboard3.setAttribute('visible', !isVisible3_3_2);
+            keyboard4.setAttribute('visible', !isVisible4_3_2);
+            keyboard5.setAttribute('visible', !isVisible5_3_2);
+            keyboard6.setAttribute('visible', !isVisible6_3_2);
+            keyboard7.setAttribute('visible', !isVisible7_3_2);
+            keyboard8.setAttribute('visible', !isVisible8_3_2);
+            keyboard9.setAttribute('visible', !isVisible9_3_2);
+
+            mouse0.setAttribute('visible', !isVisible0_3_3);
+            mouse1.setAttribute('visible', !isVisible1_3_3);
+            mouse2.setAttribute('visible', !isVisible2_3_3);
+            mouse3.setAttribute('visible', !isVisible3_3_3);
+            mouse4.setAttribute('visible', !isVisible4_3_3);
+            mouse5.setAttribute('visible', !isVisible5_3_3);
+            mouse6.setAttribute('visible', !isVisible6_3_3);
+            mouse7.setAttribute('visible', !isVisible7_3_3);
+            mouse8.setAttribute('visible', !isVisible8_3_3);
+            mouse9.setAttribute('visible', !isVisible9_3_3);
+
+            tower0.setAttribute('visible', !isVisible0_3_4);
+            tower1.setAttribute('visible', !isVisible1_3_4);
+            tower2.setAttribute('visible', !isVisible2_3_4);
+            tower3.setAttribute('visible', !isVisible3_3_4);
+            tower4.setAttribute('visible', !isVisible4_3_4);
+            tower5.setAttribute('visible', !isVisible5_3_4);
+            tower6.setAttribute('visible', !isVisible6_3_4);
+            tower7.setAttribute('visible', !isVisible7_3_4);
+            tower8.setAttribute('visible', !isVisible8_3_4);
+            tower9.setAttribute('visible', !isVisible9_3_4);
+
+            const blip = document.getElementById('blip');
+
+            const isVisible1_3_5 = blip.getAttribute('visible');
+         blip.setAttribute('visible', !isVisible1_3_5);
+         
           }
           function lights()
           {
@@ -1605,10 +1747,10 @@
           function lights2()
           {
             
-            const Button4 = document.getElementById('Button4');
-            const lights2 = document.getElementById('lights');
-            const isVisible2_4 = lights.getAttribute('visible');
-            lights2.setAttribute('visible', !isVisible1_2);
+            const Button4_1 = document.getElementById('Button4');
+            const lights2 = document.getElementById('lights2');
+            const isVisible2_4 = lights2.getAttribute('visible');
+            lights2.setAttribute('visible', !isVisible2_4);
       
 
           }
