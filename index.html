@@ -5,7 +5,7 @@
         <!--the script that contains the library of aframe -->
         <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
         <!--<script src="aframe.min.js"></script>-->
-        <style>
+          <style>
       
           #Button {
             position: absolute;
@@ -60,14 +60,72 @@
             cursor: pointer;
             z-index: 10;
           }
+         
+            #toggleButton5 {
+        position: absolute;
+        bottom: 20px;
+        right: 100px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #7e70ec;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 10; 
+      }
+      #toggleButton6 {
+        position: absolute;
+        bottom: 20px;
+        right: 300px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #7e70ec;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 10; 
+      }
+      #toggleButton7 {
+        position: absolute;
+        bottom: 20px;
+        right: 200px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #7e70ec;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 10; 
+      }
+      #toggleButton8 {
+        position: absolute;
+        bottom: 70px;
+        right: 200px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #7e70ec;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 10; 
+          }
         </style>
       </head>
-      <body onload="lights2()">
+      <body onload="lights2();">
         <button id="Button" onclick="desk()" >Desk</button>
         <button id="Button2" onclick="chair()" >Chair</button>
         <button id="Button3" onclick="pc()" >Setup</button>
         <button id="Button4" onclick="lights();lights2()" >Lights</button>
         
+        <button id="toggleButton5" onclick="right()" >Right</button>
+        <button id="toggleButton6" onclick="left()" >Left </button>
+        <button id="toggleButton7" onclick="backward()" >DOWN </button>
+        <button id="toggleButton8" onclick="forward()" >  UP  </button>
+    
         <a-scene >
           <!-- primitives-->
           <a-entity position="0 -1.2 0">
@@ -1755,5 +1813,78 @@
 
           }
         </script>
+           <script>
+  
+
+            var move_cam= document.getElementById("blip");
+            var move_cam3D= move_cam.object3D;
+            const worldPos = new THREE.Vector3();
+          
+            function forward() {
+          
+                move_cam3D.getWorldPosition(worldPos);
+                const localPos = move_cam3D.worldToLocal(worldPos.clone());
+                localPos.z -= 1; 
+          
+                const newWorldPos = move_cam3D.localToWorld(localPos);
+                move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+                }
+              
+              function backward(){
+                move_cam3D.getWorldPosition(worldPos);
+                const localPos = move_cam3D.worldToLocal(worldPos.clone());
+                localPos.z += 1; 
+          
+                const newWorldPos = move_cam3D.localToWorld(localPos);
+                move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+          
+              }
+              function right(){
+                move_cam3D.getWorldPosition(worldPos);
+                const localPos = move_cam3D.worldToLocal(worldPos.clone());
+                localPos.x += 1; 
+          
+                const newWorldPos = move_cam3D.localToWorld(localPos);
+                move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+          
+              }
+              function left(){
+                move_cam3D.getWorldPosition(worldPos);
+                const localPos = move_cam3D.worldToLocal(worldPos.clone());
+                localPos.x -= 1; 
+          
+                const newWorldPos = move_cam3D.localToWorld(localPos);
+                move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+          
+              }
+          
+              var a=  document.getElementById("toggleButton5");
+var b=  document.getElementById("toggleButton6");
+var c=  document.getElementById("toggleButton7");
+var d=  document.getElementById("toggleButton8");
+
+function isMobile() {
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  
+   }
+  if (isMobile()) {
+    console.log("Mobile device detected");
+    a.style.display = "block";
+    b.style.display = "block";
+    c.style.display = "block";
+    d.style.display = "block";
+  } else {
+    console.log("Desktop device detected");
+    a.style.display = "none";
+    b.style.display = "none";
+    c.style.display = "none";
+    d.style.display = "none";
+
+  }
+  
+
+            </script> 
+          
       </body>
     </html>
