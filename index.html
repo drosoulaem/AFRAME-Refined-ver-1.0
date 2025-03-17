@@ -121,11 +121,10 @@
         <button id="Button3" onclick="pc()" >Setup</button>
         <button id="Button4" onclick="lights();lights2()" >Lights</button>
         
-        <button id="toggleButton5" onmousedown="right()" >Right</button>
-        <button id="toggleButton6" onmousedown=" left()" >Left </button>
-        <button id="toggleButton7" onmousedown="backward()" >DOWN </button>
-        <button id="toggleButton8" onmousedown="forward()" >  UP  </button>
-    
+        <button id="toggleButton5" onmousedown="right()"  onmouseup="clear_d()" >Right</button>
+        <button id="toggleButton6" onmousedown=" left()"  onmouseup="clear_c()" >Left </button>
+        <button id="toggleButton7" onmousedown="backward()" onmouseup="clear_b()">DOWN </button>
+        <button id="toggleButton8" onmousedown="forward()" onmouseup="clear_a()">  UP  </button>
         <a-scene >
           <a-camera id="blip"></a-camera>
 
@@ -1822,47 +1821,64 @@
             const worldPos = new THREE.Vector3();
           
             function forward() {
-          
+              interval_a = setInterval(function() {
                 move_cam3D.getWorldPosition(worldPos);
                 const localPos = move_cam3D.worldToLocal(worldPos.clone());
-                localPos.z -= 1; 
+                localPos.z -= 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
                 move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
-                }
+                },50);
+              }
               
               function backward(){
+                interval_b = setInterval(function() {
                 move_cam3D.getWorldPosition(worldPos);
                 const localPos = move_cam3D.worldToLocal(worldPos.clone());
-                localPos.z += 1; 
+                localPos.z += 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
                 move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
-          
+                },50);
               }
               function right(){
+                interval_d = setInterval(function() {
                 move_cam3D.getWorldPosition(worldPos);
                 const localPos = move_cam3D.worldToLocal(worldPos.clone());
-                localPos.x += 1; 
+                localPos.x += 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
                 move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
-          
+                },50);
               }
               function left(){
+                interval_c = setInterval(function() {
                 move_cam3D.getWorldPosition(worldPos);
                 const localPos = move_cam3D.worldToLocal(worldPos.clone());
-                localPos.x -= 1; 
+                localPos.x -= 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
                 move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
-          
+                },50);
               }
-          
-              var a=  document.getElementById("toggleButton5");
-var b=  document.getElementById("toggleButton6");
-var c=  document.getElementById("toggleButton7");
-var d=  document.getElementById("toggleButton8");
+              function clear_a(){
+                clearInterval(interval_a);
+              }
+              function clear_b(){
+                clearInterval(interval_b);
+              }
+              function clear_c(){
+                clearInterval(interval_c);
+              }
+              function clear_d(){
+                clearInterval(interval_d);
+              }
+              </script>
+              <script>
+        var a=  document.getElementById("toggleButton5");
+        var b=  document.getElementById("toggleButton6");
+        var c=  document.getElementById("toggleButton7");
+        var d=  document.getElementById("toggleButton8");
 
 function isMobile() {
     const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
@@ -1870,13 +1886,13 @@ function isMobile() {
   
    }
   if (isMobile()) {
-    console.log("Mobile device detected");
+    console.log("Mobile");
     a.style.display = "block";
     b.style.display = "block";
     c.style.display = "block";
     d.style.display = "block";
   } else {
-    console.log("Desktop device detected");
+    console.log("Desktop");
     a.style.display = "none";
     b.style.display = "none";
     c.style.display = "none";
