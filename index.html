@@ -64,8 +64,8 @@
             #toggleButton5 {
         position: absolute;
         bottom: 20px;
-        right: 100px;
-        padding: 10px 20px;
+        right: 150px;
+        padding: 20px 20px;
         font-size: 16px;
         background-color: #7e70ec;
         color: white;
@@ -77,8 +77,8 @@
       #toggleButton6 {
         position: absolute;
         bottom: 20px;
-        right: 300px;
-        padding: 10px 20px;
+        right: 250px;
+        padding: 20px 20px;
         font-size: 16px;
         background-color: #7e70ec;
         color: white;
@@ -90,8 +90,9 @@
       #toggleButton7 {
         position: absolute;
         bottom: 20px;
-        right: 200px;
-        padding: 10px 20px;
+     /* right: 200px;*/
+        left: 100px;
+        padding: 20px 20px;
         font-size: 16px;
         background-color: #7e70ec;
         color: white;
@@ -103,8 +104,9 @@
       #toggleButton8 {
         position: absolute;
         bottom: 70px;
-        right: 200px;
-        padding: 10px 20px;
+     /* right: 200px;*/
+        left: 100px;
+        padding: 20px 20px;
         font-size: 16px;
         background-color: #7e70ec;
         color: white;
@@ -121,10 +123,10 @@
         <button id="Button3" onclick="pc()" >Setup</button>
         <button id="Button4" onclick="lights();lights2()" >Lights</button>
         
-        <button id="toggleButton5" ontouchstart="right()"  ontouchend="clear_d()"  ontouchcancel="clear_d()" onmousedown="right()"  onmouseup="clear_d()" ></button>
+<!--     <button id="toggleButton5" ontouchstart="right()"  ontouchend="clear_d()"  ontouchcancel="clear_d()" onmousedown="right()"  onmouseup="clear_d()" ></button>
 
-        <button id="toggleButton6" ontouchstart=" left()"  ontouchend="clear_c()"  ontouchcancel="clear_c()" onmousedown=" left()"  onmouseup="clear_c()" ></button>
-
+      <button id="toggleButton6" ontouchstart=" left()"  ontouchend="clear_c()"  ontouchcancel="clear_c()" onmousedown=" left()"  onmouseup="clear_c()" ></button>
+      -->
         <button id="toggleButton7" ontouchstart="backward()"  ontouchend="clear_b()" ontouchcancel="clear_b()" onmousedown="backward()" onmouseup="clear_b()"></button>
 
         <button id="toggleButton8" ontouchstart="forward()" ontouchend="clear_a()"  ontouchcancel="clear_a()" onmousedown="forward()" onmouseup="clear_a()"></button>
@@ -136,7 +138,7 @@
            <button id="toggleButton8" onmousedown="forward()" onmouseup="clear_a()"></button>
           -->
            <a-scene >
-          <a-camera id="blip"></a-camera>
+          <a-camera id="blop"></a-camera>
 
           <!-- primitives-->
           <a-entity position="0 -1.2 0">
@@ -1826,8 +1828,10 @@
           }
         </script>
            <script>
-            var move_cam= document.getElementById("blip");
+            var move_cam= document.getElementById("blop");
             var move_cam3D= move_cam.object3D;
+            var rot_cam3D=move_cam.object3D;
+           const  worldRot= new THREE.Quaternion();
             const worldPos = new THREE.Vector3();
             const angle = THREE.MathUtils.degToRad(1);  
             function forward() {
@@ -1853,13 +1857,9 @@
               }
               function right(){
                 interval_d = setInterval(function() {
-                move_cam3D.getWorldPosition(worldPos);
-                const localPos = move_cam3D.worldToLocal(worldPos.clone());
-             // localPos.x += 0.2;
-          
-                const newWorldPos = move_cam3D.localToWorld(localPos);
-                // move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
-                move_cam3D.rotateOnAxis(new THREE.Vector3(0, 1, 0), -angle); // Rotates around Y-axis
+
+                  // move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+//              move_cam3D.rotateOnAxis(new THREE.Vector3(0, 1, 0), -angle); // Rotates around Y-axis
               //move_cam3D.rotation.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
                 },50);
               }
@@ -1870,10 +1870,12 @@
               //localPos.x -= 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
-                
+                move_cam3D.rotation.set(0,1, 0);
+
+
                  // move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
               // move_cam3D.rotation.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
-                 move_cam3D.rotateOnAxis(new THREE.Vector3(0, 1, 0), -angle);
+              // move_cam3D.rotateOnAxis(new THREE.Vector3(0, 1, 0), -angle);
                 },50);
               }
               function clear_a(){
@@ -1908,10 +1910,10 @@ function isMobile() {
     d.style.display = "block";
   } else {
     console.log("Desktop");
-    a.style.display = "none";
+/*  a.style.display = "none";
     b.style.display = "none";
     c.style.display = "none";
-    d.style.display = "none";
+    d.style.display = "none";*/
 
   }
   
