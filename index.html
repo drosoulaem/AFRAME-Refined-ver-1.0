@@ -127,6 +127,8 @@
         <button id="toggleButton8" onclick="forward()" >  UP  </button>
     
         <a-scene >
+          <a-camera id="blip"></a-camera>
+
           <!-- primitives-->
           <a-entity position="0 -1.2 0">
 
@@ -1814,8 +1816,6 @@
           }
         </script>
            <script>
-  
-
             var move_cam= document.getElementById("blip");
             var move_cam3D= move_cam.object3D;
             const worldPos = new THREE.Vector3();
