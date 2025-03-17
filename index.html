@@ -121,10 +121,10 @@
         <button id="Button3" onclick="pc()" >Setup</button>
         <button id="Button4" onclick="lights();lights2()" >Lights</button>
         
-        <button id="toggleButton5" ontouchstart="right()"  ontouchend="clear_d()" ></button>
-        <button id="toggleButton6" ontouchstart=" left()"  ontouchend="clear_c()" ></button>
-        <button id="toggleButton7" ontouchstart="backward()"  ontouchend="clear_b()"></button>
-        <button id="toggleButton8" ontouchstart="forward()" ontouchend="clear_a()"></button>
+        <button id="toggleButton5" ontouchstart="right()"  ontouchend="clear_d()"  ontouchcancel="clear_d()" ></button>
+        <button id="toggleButton6" ontouchstart=" left()"  ontouchend="clear_c()"  ontouchcancel="clear_c()" ></button>
+        <button id="toggleButton7" ontouchstart="backward()"  ontouchend="clear_b()" ontouchcancel="clear_b()"></button>
+        <button id="toggleButton8" ontouchstart="forward()" ontouchend="clear_a()"  ontouchcancel="clear_a()" ></button>
 
      <!--  <button id="toggleButton5" onmousedown="right()"  onmouseup="clear_d()" ></button>
            <button id="toggleButton6" onmousedown=" left()"  onmouseup="clear_c()" ></button>
@@ -1854,17 +1854,20 @@
                 localPos.x += 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
-                move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+                // move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+                move_cam3D.rotation.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
                 },50);
               }
               function left(){
                 interval_c = setInterval(function() {
                 move_cam3D.getWorldPosition(worldPos);
                 const localPos = move_cam3D.worldToLocal(worldPos.clone());
-                localPos.x -= 0.2;
+                localPos.y -= 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
-                move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+                
+                 // move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+                 move_cam3D.rotation.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
                 },50);
               }
               function clear_a(){
