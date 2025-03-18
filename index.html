@@ -64,7 +64,8 @@
             #toggleButton5 {
         position: absolute;
         bottom: 20px;
-        right: 150px;
+        left: 150px;
+      /*right: 150px;*/
         padding: 20px 20px;
         font-size: 16px;
         background-color: #7e70ec;
@@ -77,7 +78,8 @@
       #toggleButton6 {
         position: absolute;
         bottom: 20px;
-        right: 250px;
+     /* right: 250px;*/
+       left: 50px;
         padding: 20px 20px;
         font-size: 16px;
         background-color: #7e70ec;
@@ -132,14 +134,15 @@
         <button id="toggleButton8" ontouchstart="forward()" ontouchend="clear_a()"  ontouchcancel="clear_a()" onmousedown="forward()" onmouseup="clear_a()"></button>
 
 
-     <!--  <button id="toggleButton5" onmousedown="right()"  onmouseup="clear_d()" ></button>
+            <button id="toggleButton5" onmousedown="right()"  onmouseup="clear_d()" ></button>
            <button id="toggleButton6" onmousedown=" left()"  onmouseup="clear_c()" ></button>
-           <button id="toggleButton7" onmousedown="backward()" onmouseup="clear_b()"></button>
+        <!--button id="toggleButton7" onmousedown="backward()" onmouseup="clear_b()"></button>
            <button id="toggleButton8" onmousedown="forward()" onmouseup="clear_a()"></button>
           -->
            <a-scene >
+            <a-entity id="rig">
           <a-camera id="blop"></a-camera>
-
+         </a-entity>
           <!-- primitives-->
           <a-entity position="0 -1.2 0">
 
@@ -1841,7 +1844,7 @@
                 localPos.z -= 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
-                move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+                move_cam3D.position.set(newWorldPos.x, 1.6, newWorldPos.z );
                 },50);
               }
               
@@ -1852,11 +1855,18 @@
                 localPos.z += 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
-                move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
+                move_cam3D.position.set(newWorldPos.x,   1.6, newWorldPos.z );
                 },50);
               }
               function right(){
                 interval_d = setInterval(function() {
+                  var rig= document.getElementById("rig");
+                  let currentRotation = rig.getAttribute('rotation');
+                  rig.setAttribute('rotation', {
+                       x: currentRotation.x,
+                       y: currentRotation.y - 3,
+                       z: currentRotation.z
+                      });
 
                   // move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
 //              move_cam3D.rotateOnAxis(new THREE.Vector3(0, 1, 0), -angle); // Rotates around Y-axis
@@ -1865,17 +1875,13 @@
               }
               function left(){
                 interval_c = setInterval(function() {
-                move_cam3D.getWorldPosition(worldPos);
-                const localPos = move_cam3D.worldToLocal(worldPos.clone());
-              //localPos.x -= 0.2;
-          
-                const newWorldPos = move_cam3D.localToWorld(localPos);
-                move_cam3D.rotation.set(0,1, 0);
-
-
-                 // move_cam3D.position.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
-              // move_cam3D.rotation.set(newWorldPos.x, newWorldPos.y, newWorldPos.z );
-              // move_cam3D.rotateOnAxis(new THREE.Vector3(0, 1, 0), -angle);
+                  var rig= document.getElementById("rig");
+                  let currentRotation = rig.getAttribute('rotation');
+                  rig.setAttribute('rotation', {
+                       x: currentRotation.x,
+                       y: currentRotation.y + 3,
+                       z: currentRotation.z
+                      });
                 },50);
               }
               function clear_a(){
