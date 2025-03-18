@@ -1831,7 +1831,7 @@
           }
         </script>
            <script>
-            var move_cam= document.getElementById("blop");
+            var move_cam= document.getElementById("rig");
             var move_cam3D= move_cam.object3D;
             var rot_cam3D=move_cam.object3D;
            const  worldRot= new THREE.Quaternion();
@@ -1844,7 +1844,7 @@
                 localPos.z -= 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
-                move_cam3D.position.set(newWorldPos.x, 1.6, newWorldPos.z );
+                move_cam3D.position.set(newWorldPos.x, 0, newWorldPos.z );
                 },50);
               }
               
@@ -1855,7 +1855,7 @@
                 localPos.z += 0.2;
           
                 const newWorldPos = move_cam3D.localToWorld(localPos);
-                move_cam3D.position.set(newWorldPos.x,   1.6, newWorldPos.z );
+                move_cam3D.position.set(newWorldPos.x,   0, newWorldPos.z );
                 },50);
               }
               function right(){
